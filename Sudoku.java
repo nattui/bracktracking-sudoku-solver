@@ -12,9 +12,14 @@ public class Sudoku {
         String grid = grid9x9(sudoku);
         System.out.println(grid);
 
+        Long startTime = System.currentTimeMillis();
+        
         int[][] matrix = grid(sudoku);
 
         solve(matrix);
+        
+        Long endTime = System.currentTimeMillis() - startTime;
+        System.out.println("The time: " + endTime + " ms");
 
         System.out.print("The Solution: " + System.lineSeparator());
         for (int[] row : matrix)
