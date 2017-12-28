@@ -13,12 +13,8 @@ public class Sudoku {
         System.out.println(grid);
 
         int[][] matrix = grid(sudoku);
-        //System.out.println(matrix[0][0] + " " + matrix[8][8] + " " + matrix[8][7]);
-
 
         solve(matrix);
-
-
 
         System.out.print("The Solution: " + System.lineSeparator());
         for (int[] row : matrix)
@@ -60,14 +56,6 @@ public class Sudoku {
     }
 
     public static boolean solve(int[][] matrix) {
-
-        System.out.print(System.lineSeparator());
-        for (int[] row : matrix)
-        {
-            System.out.println(Arrays.toString(row));
-        }
-        System.out.print(System.lineSeparator());
-
         for (int columnIndex = 0; columnIndex < 9; columnIndex++) {
             for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
                 if (matrix[columnIndex][rowIndex] > 0) {
@@ -84,13 +72,6 @@ public class Sudoku {
             }
         }
     return true;
-
-//        System.out.print(System.lineSeparator());
-//        for (int[] row : matrix)
-//        {
-//            System.out.println(Arrays.toString(row));
-//        }
-
     }
 
     public static boolean checkColumn(int[][] matrix, int columnIndex, int rowIndex) {
@@ -117,6 +98,7 @@ public class Sudoku {
         return true;
     }
 
+    // Work on progress
     public static boolean checkBlock(int[][] matrix, int columnIndex, int rowIndex) {
         for (int yBlock = 0; yBlock < 3; yBlock++) {
             for (int xBlock = 0; xBlock < 3; xBlock++) {
