@@ -103,16 +103,9 @@ public class Sudoku {
         return true;
     }
 
-    // Work on progress
+    
     public static boolean checkBlock(int[][] matrix, int columnIndex, int rowIndex) {
-        for (int yBlock = 0; yBlock < 3; yBlock++) {
-            for (int xBlock = 0; xBlock < 3; xBlock++) {
-                int x = columnIndex / 3 * 3 + yBlock;
-                int y = rowIndex / 3 * 3+ xBlock;
-            }
-
-        }
-        return true;
+        // Work on progress
     }
 
 }
