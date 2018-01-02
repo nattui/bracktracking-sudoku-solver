@@ -6,18 +6,17 @@ import java.util.Scanner;
 public class Sudoku {
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner input = new Scanner(new File("sudoku-puzzle.txt"));
+        Scanner input = new Scanner(new File("hardest-sudoku-puzzle.txt"));
         String sudoku = input.nextLine();
 
         String grid = grid9x9(sudoku);
         System.out.println(grid);
-
-        Long startTime = System.currentTimeMillis();
-        
         int[][] matrix = grid(sudoku);
 
+        Long startTime = System.currentTimeMillis();
+
         solve(matrix);
-        
+
         Long endTime = System.currentTimeMillis() - startTime;
         System.out.println("The time: " + endTime + " ms");
 
@@ -61,13 +60,21 @@ public class Sudoku {
     }
 
     public static boolean solve(int[][] matrix) {
+
+        System.out.print(System.lineSeparator());
+        for (int[] row : matrix)
+        {
+            System.out.println(Arrays.toString(row));
+        }
+        System.out.print(System.lineSeparator());
+
         for (int columnIndex = 0; columnIndex < 9; columnIndex++) {
             for (int rowIndex = 0; rowIndex < 9; rowIndex++) {
                 if (matrix[columnIndex][rowIndex] > 0) {
                     continue;
                 }
-                for (int k=1; k<=9; k++) {
-                    matrix[columnIndex][rowIndex] = matrix[columnIndex][rowIndex] + k;
+                for (int element = 1; element <= 9; element++) {
+                    matrix[columnIndex][rowIndex] = matrix[columnIndex][rowIndex] + element;
                     if (checkColumn(matrix, columnIndex, rowIndex) && checkRow(matrix, columnIndex, rowIndex) && solve(matrix)) {
                         return true;
                     }
@@ -103,9 +110,13 @@ public class Sudoku {
         return true;
     }
 
-    
     public static boolean checkBlock(int[][] matrix, int columnIndex, int rowIndex) {
-        // Work on progress
+        for (int yBlock = 0; yBlock < 3; yBlock++) {
+            for (int xBlock = 0; xBlock < 3; xBlock++) {
+                int x = columnIndex / 3 * 3 + yBlock;
+                int y = rowIndex / 3 * 3+ xBlock;
+            }
+        }
+        return true;
     }
-
 }
