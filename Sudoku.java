@@ -110,6 +110,7 @@ public class Sudoku {
         return true;
     }
 
+    // Error with checkBlock Method
     public static boolean checkBlock(int[][] matrix, int columnIndex, int rowIndex) {
         for (int yBlock = 0; yBlock < 3; yBlock++) {
             for (int xBlock = 0; xBlock < 3; xBlock++) {
